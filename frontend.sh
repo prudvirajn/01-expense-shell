@@ -14,7 +14,7 @@ Y="\e[34m"
 
 
 CHECK_ROOT(){
-    if [ $sUSERID -ne 0 ]
+    if [ $USERID -ne 0 ]
     then
        echo -e "$R run this script with root priveleges $N" | tee -a $LOG_FILE
        exit1
@@ -46,10 +46,12 @@ VALIDATE $? "start nginx"
 rm -rf /usr/share/nginx/html/* &>>$LOG_FILE
 VALIDATE $? "removing default website"
 
-
 curl -o /tmp/frontend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip &>>$LOG_FILE
 VALIDATE $? "Downloding frontend code"
 
+mkdir -p /usr/share/nginx/html
+VALIDATE $? "creating new directory"
+ 
 cd usr/share/nginx/html
 unzip /tmp/frontend.zip &>>$LOG_FILE
 VALIDATE $? "extracting the application code"
