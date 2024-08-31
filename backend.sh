@@ -72,7 +72,7 @@ cp /home/ec2-user/expense-shell/backend.service /etc/systemd/system/backend.serv
 dnf install mysql -y &>>$LOG_FILE
 VALIDATE $? "Installing MySQL Client"
 
-mysql -h mysql.nani30.online -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$LOG_FILE
+mysql -h mysql.prudviraj.online -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$LOG_FILE
 VALIDATE $? "Schema loading"
 
 systemctl daemon-reload &>>$LOG_FILE
