@@ -14,7 +14,7 @@ Y="\e[34m"
 
 
 CHECK_ROOT(){
-    if [ $userid -ne 0 ]
+    if [ $sUSERID -ne 0 ]
     then
        echo -e "$R run this script with root priveleges $N" | tee -a $LOG_FILE
        exit1
@@ -34,7 +34,7 @@ echo "script started executed at $(date)" | tee -a $LOG_FILE
 
 CHECK_ROOT
 
-dnf install nginx -y &>>$LOGS_FILE
+dnf install nginx -y &>>$LOG_FILE
 VALIDATE $? "installing nginx"
 
 systemctl enable nginx &>>$LOG_FILE
