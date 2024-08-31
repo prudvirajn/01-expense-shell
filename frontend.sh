@@ -50,9 +50,6 @@ VALIDATE $? "Removing default website"
 curl -o /tmp/frontend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip &>>$LOG_FILE
 VALIDATE $? "Downloding frontend code"
 
-mkdir -p /usr/share/nginx/html
-VALIDATE $? "creating a directory"
-
 cd /usr/share/nginx/html
 unzip /tmp/frontend.zip &>>$LOG_FILE
 VALIDATE $? "Extract frontend code"
