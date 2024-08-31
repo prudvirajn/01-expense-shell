@@ -12,7 +12,6 @@ G="\e[32m"
 N="\e[33m"
 Y="\e[34m"
 
-
 CHECK_ROOT(){
     if [ $USERID -ne 0 ]
     then
@@ -21,7 +20,6 @@ CHECK_ROOT(){
     fi
 
 }
-
 
 VALIDATE(){
     if [ $1 -ne 0 ]
